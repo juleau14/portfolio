@@ -4,5 +4,5 @@ from django.shortcuts import render
 def home(request):
 
     return render(request,
-    'portfolio/html/home.html',
+    'portfolio/home.html',
     )

@@ -1,0 +1,217 @@
+@font-face {
+    font-family: pixel_font;
+    src: url('fonts/PressStart2P-Regular.ttf');
+}
+
+
+@font-face {
+    font-family: code_font;
+    src: url('fonts/SourceCodePro-Bold.ttf');
+}
+
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background-color: black;
+}
+
+
+.picture_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+
+    width: 40%;
+    height: 100vh;
+
+    right: 0;
+
+    border-inline-start: solid 15px #c0097a;
+
+    background-color: black;
+
+    z-index: 100;
+
+    transition: 0.5s;
+}
+
+
+.picture {
+    width: 50%;
+    height: 50%;
+
+    background-color: grey;
+}
+
+
+.nav_buttons_div {
+    display: flex;
+    flex-direction: column;
+
+    position: fixed;
+    left: 0;
+    bottom: 0;
+
+    height: 30vh;
+    width: 60%;
+
+    background-color: black;
+
+    transition: 0.5s;
+}
+
+
+.previous_button_div {
+    display: flex;
+
+    height: 0%;
+    width: 100%;
+
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    transition: 0.5s;
+}
+
+
+.previous_button {
+    height: fit-content;
+    width: fit-content;
+
+    font-size: 2em;
+    font-family: pixel_font;
+
+    color: #c0097a;
+
+    border: none;
+    background-color: transparent;
+}
+
+
+.previous_button:hover {
+    color: white;
+}
+
+
+.scroll_button_div {
+    display: flex;
+
+    height: 100%;
+    width: 100%;
+
+    justify-content: center;
+    align-items: center;
+
+    transition: 0.5s;
+}
+
+
+.scroll_button {
+    height: fit-content;
+    width: fit-content;
+
+    font-size: 2em;
+    font-family: pixel_font;
+
+    color: #c0097a;
+
+    border: none;
+    background-color: transparent;
+}
+
+
+.scroll_button:hover {
+    color: white;
+}
+
+
+.main_div {
+    width: 100%;
+}
+
+
+.welcome_text_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 60%;
+    height: 70vh;
+
+    transition: 0.5s;
+}
+
+
+.welcome_text {
+    text-align: center;
+
+    font-size: 4em;
+    font-family: code_font;
+
+    color: white;
+}
+
+
+.about_me_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 70vh;
+
+    background-color: #c0097a;
+}
+
+
+.about_me_content_div {
+    width: 80%;
+    height: 80%;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: white;
+}
+
+
+.about_me_title {
+    font-family: code_font;
+    font-size: 3em;
+    color: #c0097a;
+
+    text-align: center;
+
+    width: 100%;
+    height: 20%;
+}
+
+
+.about_me_text {
+    width: 100%;
+    height: 80%;
+
+    padding: 0 3%;
+
+    font-family: code_font;
+}
+
+
+
+
+.empty_div {
+    width: 100%;
+    height: 30vh;
+}
