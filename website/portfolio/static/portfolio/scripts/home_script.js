@@ -1,12 +1,22 @@
+var pythonPosition = 0;
+var htmlPosition = 0;
+
 function start() {
 
     const scrollButton = document.querySelector(".scroll_button");
     const previousButton = document.querySelector(".previous_button");
-    
+    const pythonButton = document.querySelector(".python_button");
+    const htmlButton = document.querySelector(".html_button");
+
     window.addEventListener("scroll", firstScroll);
+    window.addEventListener("load", firstScroll);
     window.addEventListener("scroll", animateAboutMe);
+
     scrollButton.addEventListener("click", nextScroll);
     previousButton.addEventListener("click", previousScroll);
+    
+    pythonButton.addEventListener("click", modifPython);
+    htmlButton.addEventListener("click", modifHtml);
 
 }
 
@@ -73,10 +83,16 @@ function nextScroll() {
 
     const aboutMe = document.querySelector(".about_me_div");
     const aboutMeToTop = aboutMe.getBoundingClientRect().top + window.scrollY;
-    const aboutMeText = document.querySelector(".about_me_text");
+
+    const skills = document.querySelector(".skills_div");
+    const skillsToTop = skills.getBoundingClientRect().top + window.scrollY;
 
     if (scrolled < aboutMeToTop) {
         window.scrollBy(0, aboutMeToTop);
+    } 
+    
+    else if (scrolled < skillsToTop) {
+        window.scrollBy(0, skillsToTop);
     }
 
 }
@@ -89,10 +105,15 @@ function previousScroll() {
     const aboutMe = document.querySelector(".about_me_div");
     const aboutMeToTop = aboutMe.getBoundingClientRect().top + window.scrollY;
 
+    const skills = document.querySelector(".skills_div");
+    const skillsToTop = skills.getBoundingClientRect().top + window.scrollY;
+
     if (scrolled < aboutMeToTop + 1) {
-
         window.scrollTo(0, 0);
+    }
 
+    else if (scrolled < skillsToTop + 1) {
+        window.scrollTo(0, aboutMeToTop);
     }
 
 }
@@ -110,6 +131,63 @@ function animateAboutMe() {
 
     }
 
+}
+
+
+function updateSkills() {
+    const pythonContent = document.querySelector(".python_content_div");
+    const pythonButton = document.querySelector(".python_button");
+
+    const htmlContent = document.querySelector(".html_content_div");
+    const htmlButton = document.querySelector(".html_button");
+
+    if (pythonPosition == 0) {
+        pythonContent.style.width = "0";
+        pythonButton.innerHTML = ">";
+    }
+
+    else {
+        pythonContent.style.width = "15vw";
+        pythonButton.innerHTML = "<";
+    }
+
+    if (htmlPosition == 0) {
+        htmlContent.style.width = "0";
+        htmlButton.innerHTML = ">";
+    }
+
+    else {
+        htmlContent.style.width = "15vw";
+        htmlButton.innerHTML = "<"
+    }
+}
+
+
+function modifPython() {
+    if (pythonPosition == 0) {
+        pythonPosition = 1;
+        htmlPosition = 0;
+        updateSkills();
+    }
+
+    else {
+        pythonPosition = 0;
+        updateSkills();
+    }
+}
+
+
+function modifHtml() {
+    if (htmlPosition == 0) {
+        htmlPosition = 1;
+        pythonPosition = 0;
+        updateSkills();
+    }
+
+    else {
+        htmlPosition = 0;
+        updateSkills();
+    }
 }
 
 
