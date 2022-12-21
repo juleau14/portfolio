@@ -1,5 +1,7 @@
 var pythonPosition = 0;
 var htmlPosition = 0;
+var cssPosition = 0;
+var djangoPosition = 0;
 
 function start() {
 
@@ -7,6 +9,8 @@ function start() {
     const previousButton = document.querySelector(".previous_button");
     const pythonButton = document.querySelector(".python_button");
     const htmlButton = document.querySelector(".html_button");
+    const cssButton = document.querySelector(".css_button");
+    const djangoButton = document.querySelector(".django_button");
 
     window.addEventListener("scroll", firstScroll);
     window.addEventListener("load", firstScroll);
@@ -17,6 +21,8 @@ function start() {
     
     pythonButton.addEventListener("click", modifPython);
     htmlButton.addEventListener("click", modifHtml);
+    cssButton.addEventListener("click", modifCss);
+    djangoButton.addEventListener("click", modifDjango);
 
 }
 
@@ -141,6 +147,12 @@ function updateSkills() {
     const htmlContent = document.querySelector(".html_content_div");
     const htmlButton = document.querySelector(".html_button");
 
+    const cssContent = document.querySelector(".css_content_div");
+    const cssButton = document.querySelector(".css_button");
+
+    const djangoContent = document.querySelector(".django_content_div");
+    const djangoButton = document.querySelector(".django_button");
+
     if (pythonPosition == 0) {
         pythonContent.style.width = "0";
         pythonButton.innerHTML = ">";
@@ -160,6 +172,26 @@ function updateSkills() {
         htmlContent.style.width = "15vw";
         htmlButton.innerHTML = "<"
     }
+
+    if (cssPosition == 0) {
+        cssContent.style.width = "0";
+        cssButton.innerHTML = ">";
+    }
+
+    else {
+        cssContent.style.width = "15vw";
+        cssButton.innerHTML = "<";
+    }
+ 
+    if (djangoPosition == 0){
+        djangoContent.style.width = "0";
+        djangoButton.innerHTML = ">";
+    }
+
+    else {
+        djangoContent.style.width = "15vw";
+        djangoButton.innerHTML = "<";
+    }
 }
 
 
@@ -167,6 +199,8 @@ function modifPython() {
     if (pythonPosition == 0) {
         pythonPosition = 1;
         htmlPosition = 0;
+        cssPosition = 0;
+        djangoPosition = 0;
         updateSkills();
     }
 
@@ -181,11 +215,45 @@ function modifHtml() {
     if (htmlPosition == 0) {
         htmlPosition = 1;
         pythonPosition = 0;
+        cssPosition = 0;
+        djangoPosition = 0;
         updateSkills();
     }
 
     else {
         htmlPosition = 0;
+        updateSkills();
+    }
+}
+
+
+function modifCss() {
+    if (cssPosition == 0) {
+        cssPosition = 1;
+        pythonPosition = 0;
+        htmlPosition = 0;
+        djangoPosition = 0;
+        updateSkills();
+    }
+
+    else {
+        cssPosition = 0;
+        updateSkills();
+    }
+}
+
+
+function modifDjango() {
+    if (djangoPosition == 0) {
+        djangoPosition = 1;
+        pythonPosition = 0;
+        htmlPosition = 0;
+        cssPosition = 0;
+        updateSkills();
+    }
+
+    else {
+        djangoPosition = 0;
         updateSkills();
     }
 }
