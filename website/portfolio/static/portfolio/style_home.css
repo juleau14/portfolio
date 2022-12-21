@@ -13,6 +13,8 @@
 html {
     margin: 0;
     padding: 0;
+
+    scroll-behavior: smooth;
 }
 
 
@@ -40,17 +42,20 @@ body {
 
     background-color: black;
 
-    z-index: 100;
+    z-index: 1000;
 
     transition: 0.5s;
 }
 
 
 .picture {
-    width: 50%;
-    height: 50%;
+    width: 50vh;
+    height: 50vh;
 
-    background-color: grey;
+    border-radius: 50%;
+
+    background-image: url('medias/man.jpg');
+    background-size: cover;
 }
 
 
@@ -68,6 +73,8 @@ body {
     background-color: black;
 
     transition: 0.5s;
+
+    z-index: 500;
 }
 
 
@@ -182,12 +189,32 @@ body {
 
     display: flex;
     flex-direction: column;
+    align-items: center;
 
     background-color: white;
+
+    overflow: hidden;
+}
+
+
+.about_me_animation_square {
+    z-index: 200;
+
+    width: 200vw;
+    height: 20vh;
+
+    background-color: rgb(119, 228, 146);
+
+    transform: rotate(-45deg);
+
+    margin-left: -100vw;
+
+    transition: 0.75s;
 }
 
 
 .about_me_title {
+    position: absolute;
     font-family: code_font;
     font-size: 3em;
     color: #c0097a;
@@ -196,16 +223,21 @@ body {
 
     width: 100%;
     height: 20%;
+
+    margin-bottom: 0;
 }
 
 
 .about_me_text {
-    width: 100%;
+    width: 80%;
     height: 80%;
 
-    padding: 0 3%;
+    text-align: center;
 
     font-family: code_font;
+    font-size: 1.5em;
+
+    margin: 0;
 }
 
 

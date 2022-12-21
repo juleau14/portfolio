@@ -1,20 +1,24 @@
 function start() {
 
-    scrollButton = document.querySelector(".scroll_button");
+    const scrollButton = document.querySelector(".scroll_button");
+    const previousButton = document.querySelector(".previous_button");
     
     window.addEventListener("scroll", firstScroll);
+    window.addEventListener("scroll", animateAboutMe);
     scrollButton.addEventListener("click", nextScroll);
+    previousButton.addEventListener("click", previousScroll);
 
 }
 
 
 function firstScroll() {
     
-    pictureDiv = document.querySelector(".picture_div");
-    welcomeText = document.querySelector(".welcome_text_div");
-    navButtons = document.querySelector(".nav_buttons_div");
-    scrollButton = document.querySelector(".scroll_button_div");
-    previousButton = document.querySelector(".previous_button_div");
+    const pictureDiv = document.querySelector(".picture_div");
+    const welcomeText = document.querySelector(".welcome_text_div");
+    const navButtons = document.querySelector(".nav_buttons_div");
+    const scrollButton = document.querySelector(".scroll_button_div");
+    const previousButton = document.querySelector(".previous_button_div");
+    const scrollButtonText = document.querySelector(".scroll_button");
 
     var scrolled = window.scrollY;
 
@@ -33,6 +37,10 @@ function firstScroll() {
         // display previous button 
         scrollButton.style.height = "50%";
         previousButton.style.height = "50%";
+
+        // change next scroll text
+        scrollButtonText.innerHTML = "&lt next &gt";
+
     }
 
     else {
@@ -50,15 +58,58 @@ function firstScroll() {
         // hide previous button 
         scrollButton.style.height = "100%";
         previousButton.style.height = "0";
+
+        // change next scroll text
+        scrollButtonText.innerHTML = "click to scroll";
+
     }
 
 }
 
 
 function nextScroll() {
+    
     var scrolled = window.scrollY;
 
-    aboutMe = document.querySelector(".about_me_div"); 
+    const aboutMe = document.querySelector(".about_me_div");
+    const aboutMeToTop = aboutMe.getBoundingClientRect().top + window.scrollY;
+    const aboutMeText = document.querySelector(".about_me_text");
+
+    if (scrolled < aboutMeToTop) {
+        window.scrollBy(0, aboutMeToTop);
+    }
+
+}
+
+
+function previousScroll() {
+
+    var scrolled = window.scrollY;
+
+    const aboutMe = document.querySelector(".about_me_div");
+    const aboutMeToTop = aboutMe.getBoundingClientRect().top + window.scrollY;
+
+    if (scrolled < aboutMeToTop + 1) {
+
+        window.scrollTo(0, 0);
+
+    }
+
+}
+
+
+function animateAboutMe() {
+
+    const aboutMe = document.querySelector(".about_me_div");
+    const animationRectangle = document.querySelector(".about_me_animation_square");
+    var aboutMeToTop = aboutMe.getBoundingClientRect().top;
+
+    if (aboutMeToTop <= 0) {
+
+        animationRectangle.style.marginLeft = "150vw";
+
+    }
+
 }
 
 
